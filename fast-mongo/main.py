@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel
 
-from pymongo import MongoClient
+
 from bson import ObjectId
 
 import jwt
@@ -23,7 +23,11 @@ app = FastAPI()
 # MongoDB
 # =========================
 
-URL = "mongodb://127.0.0.1:27017"
+import os
+from pymongo import MongoClient
+
+URL = os.getenv("mongodb+srv://j_ganesh_setty:Ganesh2008@cluster1.6dgt2ay.mongodb.net/?appName=Cluster1")
+
 client = MongoClient(URL)
 
 db = client["hr_service_db"]
